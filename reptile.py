@@ -1,13 +1,12 @@
-import requests
-from bs4 import BeautifulSoup
+import re
 import lxml
 import time
-import re
-
+import requests
+from bs4 import BeautifulSoup
 
 class Air(object):
     """
-    douyu
+    斗鱼直播
     """
 
     def __init__(self, *args, **kwargs):
@@ -36,8 +35,9 @@ class Air(object):
             new_url = "https://www.douyu.com" + i
             url_list.append(new_url)
         f.write(time.strftime("%Y-%m-%d %H:%M:%S") + "主播排名以及观看数：\n ")
-        for i in range(0,len(people_count)):
-            f.write("当前排名第{}的主播为： {}，当前观看人数为{},直播链接：{}\n".format(str(i+1),users_list[i],people_count[i],url_list[i]))
+        for i in range(0, len(people_count)):
+            f.write(
+                "当前排名第{}的主播为： {}，当前观看人数为{},直播链接：{}\n".format(str(i + 1), users_list[i], people_count[i], url_list[i]))
             f.flush()
 
 
