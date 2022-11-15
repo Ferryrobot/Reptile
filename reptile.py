@@ -30,7 +30,7 @@ class Air(object):
         f = open("douyu.txt", "a", encoding="utf-8")
         i = 0
         link = soup.find_all('a', class_="DyListCover-wrap")
-        link_list = list(re.findall(r'(?<=href=")/\d{6}', str(link)))
+        link_list = list(re.findall(r'(?<=href=")/\d*', str(link)))
         url_list = []
         for i in link_list:
             new_url = "https://www.douyu.com" + i
@@ -43,4 +43,5 @@ class Air(object):
 
 if __name__ == "__main__":
     air = Air()
+
     air.get()
